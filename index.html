@@ -1,13 +1,38 @@
-<html>
-  <head><title>In Development</title></head>
+<!doctype HTML>
+<html ng-app="drunkcraftApp">
+  <head>
+      <title>Drunkcraft Hub Page</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="styles/drunkcraft.css"/> 
 
-  <body>
-    <h2>This page is currently in development. Please excuse our construction.</h2>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="javascript/application.js"></script>
+  </head>
 
-    <p>If you were looking for the drunkcraft wiki or slack sites please use the following links:</p>
-    <ul>
-      <li><a href="/dokuwiki/">Wiki</a></li>
-      <li><a href="http://drunkcraft.slack.com">Drunkcraft Slack</a></li>
-    </ul>
+  <body ng-controller="mainController">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">Drunkcraft Hub Page</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+                    <li><a href="/dokuwiki/"><i class="fa fa-book fa-fw"></i>&nbsp;Wiki</a></li>
+                    <li><a href="http://drunkcraft.slack.com"><i class="fa fa-comments fa-fw"></i>&nbsp;Drunkcraft Slack</a></li>
+                    <li><a href="javascript:void(0);"><i class="fa fa-github fa-fw"></i>&nbsp;Github (Coming Soon)</a></li>
+                    <li><a href="#/about"><i class="fa fa-shield fa-fw"></i>&nbsp;About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="main">
+        <div ng-view></div>
+    </div>
   </body>
 </html>
