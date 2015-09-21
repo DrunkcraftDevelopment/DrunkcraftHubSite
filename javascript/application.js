@@ -13,9 +13,15 @@ drunkcraftApp.config(function($routeProvider) {
         });
 });
 
-drunkcraftApp.controller('mainController', function($scope) {
-});
+drunkcraftApp.controller('mainController', function($scope, $http) {
+    var host = config_data['api_host']
+    var port = config_data['api_host_port']
+    $http.get(host + ':' + port + '/news').success(function(data) {
+        console.log(data)
+        $scope.news = data
+    })
+})
 
 drunkcraftApp.controller('aboutController', function($scope) {
-    $scope.message = 'Coming Soon!';
-});
+    $scope.message = 'Coming Soon!'
+})
