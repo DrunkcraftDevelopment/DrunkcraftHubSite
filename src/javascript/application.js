@@ -14,8 +14,8 @@ drunkcraftApp.config(function($routeProvider) {
 });
 
 drunkcraftApp.controller('mainController', function($scope, $http) {
-    var host = config_data['api_host']
-    var port = config_data['api_host_port']
+    var host = config_data['api.host']
+    var port = config_data['api.host.port']
     $http.get(host + ':' + port + '/news').success(function(data) {
         console.log(data)
         $scope.news = data
