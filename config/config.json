@@ -1,6 +1,6 @@
 {
     "api.config": {
-        "host" : "http://localhost",
+        "host" : "http://drunkcraft.crabdance.com",
         "port" : "8085"
     }
 }
