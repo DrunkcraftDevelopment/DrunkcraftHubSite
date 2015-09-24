@@ -15,14 +15,17 @@ module.exports = function(grunt) {
                     {
                         'expand': true,
                         'cwd' : 'src/',
-                        'src': ['**', '!javascript/**', '!styles/**', '!test/**'],
+                        'src': ['**', '!scripts/**', '!styles/**', '!test/**', '!views/index.html'],
                         'dest': 'dist/'
                     }, {
                         'expand': true,
                         'cwd' : 'bower_components/',
                         'src': ['**'],
-                        'dest': 'dist/lib'
-                    }
+                        'dest': 'dist/scripts/vendor'
+                    }, {
+                        'src': ['src/views/index.html'],
+                        'dest': 'dist/index.html'
+                    } 
                 ]
             }
         },
@@ -36,7 +39,7 @@ module.exports = function(grunt) {
         'concat': {
             'dist': {
                 'src': ['src/**/*.js'],
-                'dest': 'dist/javascript/<%= pkg.name %>-<%= pkg.version %>.js'
+                'dest': 'dist/scripts/<%= pkg.name %>-<%= pkg.version %>.js'
             }
         },
         'concat_css': {
@@ -51,12 +54,29 @@ module.exports = function(grunt) {
             },
             'dist': {
                 'files': {
-                    'dist/javascript/<%= pkg.name %>-<%= pkg.version %>.min.js' : ['dist/javascript/<%= pkg.name %>-<%= pkg.version %>.js']
+                    'dist/scripts/<%= pkg.name %>-<%= pkg.version %>.min.js' : ['dist/scripts/<%= pkg.name %>-<%= pkg.version %>.js']
                 }
             }
         }
     })
 
-    grunt.registerTask('build', ['clean', 'jshint', 'concat', 'concat_css', 'uglify', 'copy'])
+    grunt.registerTask('updateJson', function() {
+        var pkg = grunt.file.readJSON('package.json')
+        var configFile = 'config/config.json'
+        var destFile = 'dist/config/config.json'
+
+        if (!grunt.file.exists(configFile)) {
+            grunt.log.error('Config file not found at ' + configFile) 
+            return false
+        }    
+        var config = grunt.file.readJSON(configFile)
+        var appVersion = pkg.version 
+
+        config['version'] = appVersion
+
+        grunt.file.write(destFile, JSON.stringify(config, null, 2))
+    })
+
+    grunt.registerTask('build', ['clean', 'jshint', 'concat', 'concat_css', 'uglify', 'copy', 'updateJson'])
     grunt.registerTask('default', ['build'])
 }
