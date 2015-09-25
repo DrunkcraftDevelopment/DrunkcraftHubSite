@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                     {
                         'expand': true,
                         'cwd' : 'src/',
-                        'src': ['**', '!scripts/**', '!styles/**', '!test/**', '!views/index.html'],
+                        'src': ['**', '!scripts/**', '!styles/**', '!spec/**', '!views/index.html'],
                         'dest': 'dist/'
                     }, {
                         'expand': true,
