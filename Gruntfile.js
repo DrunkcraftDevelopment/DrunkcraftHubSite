@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     {
                         'expand': true,
                         'cwd' : 'src/',
-                        'src': ['**', '!scripts/**', '!styles/**', '!spec/**', '!views/index.html'],
+                        'src': ['**', 'scripts/**', 'styles/**', '!spec/**', '!views/index.html'],
                         'dest': 'dist/'
                     }, {
                         'expand': true,
@@ -84,6 +84,6 @@ module.exports = function(grunt) {
     })
 
     grunt.registerTask('test', ['jshint', 'karma'])
-    grunt.registerTask('build', ['clean', 'jshint', 'concat', 'concat_css', 'uglify', 'copy', 'updateJson'])
+    grunt.registerTask('build', ['clean', 'jshint', 'concat_css', 'copy', 'updateJson'])
     grunt.registerTask('default', ['build'])
 }

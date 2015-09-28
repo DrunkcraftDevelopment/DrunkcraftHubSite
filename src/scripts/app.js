@@ -1,18 +1,18 @@
-var drunkcraftApp = angular.module('drunkcraftApp', ['ngRoute']);
+define([
+    'angular',
+    'angular-route',
+    './controllers/index',
+    './services/index'
+], function(angular) {
+    'use strict'
 
-drunkcraftApp.config(function($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl : 'views/home.html',
-            controller : 'HomeCtrl'
-        })
-
-        .when('/about', {
-            templateUrl : 'views/about.html',
-            controller : 'aboutController'
-        });
-});
-
-drunkcraftApp.controller('aboutController', function($scope) {
-    $scope.message = 'Coming Soon!'
+    return angular.module('drunkcraftApp', [
+        'drunkcraftApp.controllers',
+        'drunkcraftApp.services',
+        'ngRoute'
+    ])
 })
+
+//drunkcraftApp.controller('aboutController', function($scope) {
+//    $scope.message = 'Coming Soon!'
+//})
