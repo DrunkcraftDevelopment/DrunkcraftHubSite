@@ -1,5 +1,5 @@
-angular.module('drunkcraftApp').factory('NewsService', function($http) {
-    var getNews = function() {
+angular.module('drunkcraftApp').factory('ConfigService', function($http) {
+    var getConfig = function() {
         return $http.get('config/config.json')
                  .success(function(res) {
                      return res.data
@@ -10,6 +10,6 @@ angular.module('drunkcraftApp').factory('NewsService', function($http) {
     }
 
     return {
-        getNews : getNews
+        getConfig : getConfig
     }
 })

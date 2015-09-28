@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean')
     grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-concat-css')
+    grunt.loadNpmTasks('grunt-karma')
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -57,6 +58,11 @@ module.exports = function(grunt) {
                     'dist/scripts/<%= pkg.name %>-<%= pkg.version %>.min.js' : ['dist/scripts/<%= pkg.name %>-<%= pkg.version %>.js']
                 }
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'drunkcraft.conf.js'
+            }
         }
     })
 
@@ -77,6 +83,7 @@ module.exports = function(grunt) {
         grunt.file.write(destFile, JSON.stringify(config, null, 2))
     })
 
+    grunt.registerTask('test', ['jshint', 'karma'])
     grunt.registerTask('build', ['clean', 'jshint', 'concat', 'concat_css', 'uglify', 'copy', 'updateJson'])
     grunt.registerTask('default', ['build'])
 }
