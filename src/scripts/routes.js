@@ -1,6 +1,10 @@
-define(['./app'], function(drunkcraftApp) {
+define(['angular', './app'], function(angular) {
+    console.log('start')
+    var drunkcraftApp = angular.module('drunkcraftApp')
+    console.log(drunkcraftApp)
+
     return drunkcraftApp.config(['$routeProvider', function($routeProvider) {
-            console.log('provide')
+            console.log('routes!')
             $routeProvider
                 .when('/', {
                     templateUrl : 'views/home.html',

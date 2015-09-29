@@ -5,10 +5,11 @@ define([
     './services/index'
 ], function(angular) {
     'use strict'
-
-    return angular.module('drunkcraftApp', [
-        'drunkcraftApp.controllers',
-        'drunkcraftApp.services',
+    console.log('test')
+    console.log(angular)
+    angular.module('drunkcraftApp', [
+        'controllers',
+        'services',
         'ngRoute'
     ])
 })

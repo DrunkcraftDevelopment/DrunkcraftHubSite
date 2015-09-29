@@ -3,4 +3,4 @@ define([
     'angular',
     'app',
     'routes'
-])
+], function() {})

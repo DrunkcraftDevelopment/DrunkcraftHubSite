@@ -1,4 +1,4 @@
-define(['angular', './app'], function(ng) {
+define(['angular'], function(ng) {
     'use strict'
-    return ng.module('drunkcraftApp.services', [])
+    return ng.module('services', [])
 })
