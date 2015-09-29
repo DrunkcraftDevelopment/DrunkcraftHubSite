@@ -1,17 +1,19 @@
 define([
     'angular',
     'angular-route',
+    './routes',
     './controllers/index',
     './services/index'
-], function(angular) {
+], function(angular, ngRoute, routeConfig) {
     'use strict'
-    console.log('test')
-    console.log(angular)
-    angular.module('drunkcraftApp', [
-        'controllers',
-        'services',
+    var drunkcraftApp =  angular.module('drunkcraftApp', [
+        'drunkcraftApp.controllers',
+        'drunkcraftApp.services',
         'ngRoute'
     ])
+    .config(routeConfig)
+
+    return drunkcraftApp
 })
 
 //drunkcraftApp.controller('aboutController', function($scope) {

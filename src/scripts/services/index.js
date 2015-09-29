@@ -1,3 +1,3 @@
-define('./scripts', [
-    './ConfigService.js'
+define([
+    './ConfigService'
 ], function() {})

@@ -1,6 +1,9 @@
 define([
     'require',
     'angular',
-    'app',
-    'routes'
-], function() {})
+    'angular-route',
+    'app'
+], function(require, angular) {
+    'use strict'
+     angular.bootstrap(document, ['drunkcraftApp'])
+})

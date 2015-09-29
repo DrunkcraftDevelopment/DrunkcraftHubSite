@@ -1,3 +1,4 @@
-define('scripts', [
-    './HomeCtrl.js'
+define([
+    './HomeCtrl',
+    './AboutCtrl'
 ], function() {})

@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                     }, {
                         'src': ['src/views/index.html'],
                         'dest': 'dist/index.html'
-                    } 
+                    }
                 ]
             }
         },

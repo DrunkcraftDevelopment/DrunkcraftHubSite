@@ -1,6 +1,6 @@
-define(['./modules'], function(services) {
+define(['./module'], function(services) {
 
-    services.factory('ConfigService', [function($http) {
+    return services.factory('ConfigService', ['$http', function($http) {
         var getConfig = function() {
             return $http.get('config/config.json')
                      .success(function(res) {
