@@ -1,4 +1,7 @@
 # DrunkcraftHubSite
+
+[![Build Status](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSite.svg?branch=master)](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSite)
+
 Website Hub for the drunkcraft services
 
 In order to get the application built you need to have nodejs, npm and grunt-cli installed on your machine. The commands to run are:
