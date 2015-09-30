@@ -12,23 +12,18 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine', 'requirejs'],
 
-
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/requirejs/require.js',
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-route/angular-route.js',
-      'src/scripts/app.js',
-      {pattern: 'src/scripts/**/*.js', included: true},
+      {pattern: 'bower_components/**/*.js', included: false},
+      {pattern: 'src/scripts/**/*.js', included: false},
       {pattern: 'src/spec/**/*Spec.js', included: false},
-
       'src/spec/test-main.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+        '**/*main.js'
     ],
 
 
@@ -56,11 +51,9 @@ module.exports = function(config) {
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
-
-
+    
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
@@ -68,6 +61,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false 
   })
 }

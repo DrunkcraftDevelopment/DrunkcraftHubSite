@@ -1,5 +1,5 @@
 var allTestFiles = [];
-var TEST_REGEXP = /(spec|test)\.js$/i;
+var TEST_REGEXP = /(Spec|test)\.js$/i;
 
 // Get a list of all the test files to include
 Object.keys(window.__karma__.files).forEach(function(file) {
@@ -14,15 +14,15 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 
 require.config({
 
-  //paths: {
-  //  'angular': '../../bower_components/angular/**/*.js',
-  //  'angular-mocks': '../../bower_components/angular-mocks/**/*.js'
-  //},
+  paths: {
+    'angular': '../../bower_components/angular/**/*.js',
+    'angular-mocks': '../../bower_components/angular-mocks/**/*.js'
+  },
 
-  //shim: {
-  //  'angular': {exports: 'angular'}, 
-  //  'angular-mocks': {deps:['angular'], exports: 'mock'}
-  //},
+  shim: {
+    'angular': {exports: 'angular'}, 
+    'angular-mocks': {deps:['angular'], exports: 'mock'}
+  },
 
   // Karma serves files under /base, which is the basePath from your config file
   baseUrl: '/base',
