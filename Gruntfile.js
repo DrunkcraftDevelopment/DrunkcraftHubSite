@@ -60,9 +60,16 @@ module.exports = function(grunt) {
             }
         },
         karma: {
-            unit: {
+            options: {
                 configFile: 'drunkcraft.conf.js'
-            }
+            },
+            continuous: {
+                singleRun: true,
+                browsers: ['PhantomJS']
+            },
+            dev: {
+                browsers: ['Chrome']
+            },
         }
     })
 
@@ -83,7 +90,7 @@ module.exports = function(grunt) {
         grunt.file.write(destFile, JSON.stringify(config, null, 2))
     })
 
-    grunt.registerTask('test', ['jshint', 'karma'])
-    grunt.registerTask('build', ['clean', 'jshint', 'concat_css', 'copy', 'updateJson'])
+    grunt.registerTask('test', ['jshint', 'karma:dev'])
+    grunt.registerTask('build', ['clean', 'jshint', 'karma:continuous', 'concat_css', 'copy', 'updateJson'])
     grunt.registerTask('default', ['build'])
 }
