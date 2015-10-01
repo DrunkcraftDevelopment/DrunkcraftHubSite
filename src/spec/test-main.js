@@ -15,13 +15,15 @@ Object.keys(window.__karma__.files).forEach(function(file) {
 require.config({
 
   paths: {
-    'angular': '../../bower_components/angular/**/*.js',
-    'angular-mocks': '../../bower_components/angular-mocks/**/*.js'
+    'angular': 'bower_components/angular/angular',
+    'angular-mocks': 'bower_components/angular-mocks/angular-mocks',
+    'angular-route': 'bower_components/angular-route/angular-route',
   },
 
   shim: {
     'angular': {exports: 'angular'}, 
-    'angular-mocks': {deps:['angular'], exports: 'mock'}
+    'angular-mocks': {deps:['angular'], exports: 'mock'},
+    'angular-route': {deps:['angular']},
   },
 
   // Karma serves files under /base, which is the basePath from your config file
