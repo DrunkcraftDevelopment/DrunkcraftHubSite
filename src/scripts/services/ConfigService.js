@@ -12,8 +12,18 @@ define(['./module'], function(services) {
                      })
         }
 
+        var getApiUrl = function() {
+            return getConfig().then(function(config_res) {
+                var configData = config_res.data
+                var host = configData['api.config'].host
+                var port = configData['api.config'].port
+                return host + ':' + port
+            })
+        }
+
         return {
-            getConfig : getConfig
+            getConfig : getConfig,
+            getApiUrl : getApiUrl
         }
     }])
 })

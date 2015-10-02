@@ -1,0 +1,17 @@
+<div class="jumbotron">
+    <form class="simple-form">
+        <table>
+            <tr>
+                <td><label id="usernameLbl">Username:</label></td>
+                <td><input id="usernameInput" type="text" ng-model="user.username"/></td>
+            </tr>
+            <tr>
+                <td><label id="passwordLbl">Password:</label></td>
+                <td><input id="passwordInput" type="text" ng-model="user.password"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" ng-click="login(user)" value="login"/></td>
+            </tr>
+        </table>
+    </form>
+</div>

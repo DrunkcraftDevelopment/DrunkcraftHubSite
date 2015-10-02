@@ -1,3 +1,4 @@
 define([
-    './ConfigService'
+    './ConfigService',
+    './UserModel'
 ], function() {})

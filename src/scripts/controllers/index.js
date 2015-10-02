@@ -1,4 +1,5 @@
 define([
     './HomeCtrl',
-    './AboutCtrl'
+    './AboutCtrl',
+    './LoginCtrl'
 ], function() {})
