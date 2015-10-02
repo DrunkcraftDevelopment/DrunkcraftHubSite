@@ -11,8 +11,8 @@ define(['./module'], function(controllers) {
                     url     : apiUrl + '/login',
                     data    : encodeURIComponent(JSON.stringify(user)),
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-                }).success(function(res)) {
-                }
+                }).success(function(res) {
+                })
             })
         }
     }])

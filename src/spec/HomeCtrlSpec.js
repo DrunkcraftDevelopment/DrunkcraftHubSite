@@ -5,18 +5,12 @@ define([
 ], function(angular, mocks) {
     "use strict"
     describe('HomeCtrl', function() {
+        var expectedApiUrl = 'host:port'
+
         beforeEach(module('drunkcraftApp'))
         beforeEach(module('drunkcraftApp.controllers'))
         
         var mockNewsService, deferred, q, promise
-        var testApiConfig = {
-            'data': {
-                'api.config': {
-                    'host': 'host',
-                    'port': 'port'
-                }
-            }
-        }
         
         beforeEach(function() {
            module(function($provide) {
@@ -25,9 +19,15 @@ define([
                         deferred = $q.defer()
                         return deferred.promise
                     }
+                    
+                    function getApiUrl() { 
+                        deferred = $q.defer()
+                        return deferred.promise
+                    }
 
                     return {
-                        getConfig : getConfig
+                        getConfig : getConfig,
+                        getApiUrl : getApiUrl
                     }
                 })
            })
@@ -60,7 +60,7 @@ define([
 
             it('sets news when called and value returned', function() {
                 createHomeController()
-                deferred.resolve(testApiConfig)
+                deferred.resolve(expectedApiUrl)
                 $httpBackend.flush()
                 scope.$digest()
                 expect($scope.news).toEqual([{'test': 'test'}])
