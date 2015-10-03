@@ -1,7 +1,7 @@
 # DrunkcraftHubSite
 
 [![Build Status](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSite.svg?branch=master)](https://travis-ci.org/DrunkcraftDevelopment/DrunkcraftHubSite)
-![Dependancies](https://david-dm.org/DrunkcraftDevelopment/DrunkcraftHubSite.svg)
+[![DevDependancies](https://david-dm.org/DrunkcraftDevelopment/DrunkcraftHubSite/dev-status.svg)](https://david-dm.org/DrunkcraftDevelopment/DrunkcraftHubSite#info=devDependencies)
 
 Website Hub for the drunkcraft services
 
