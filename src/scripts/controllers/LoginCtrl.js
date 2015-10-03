@@ -8,12 +8,20 @@ define(['./module'], function(controllers) {
             getApiUrl.then(function(apiUrl) {
                 $http({
                     method  : 'POST',
-                    url     : apiUrl + '/login',
-                    data    : encodeURIComponent(JSON.stringify(user)),
+                    url     : apiUrl + '/user/login',
+                    data    : encodeUserData(user),
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).success(function(res) {
                 })
             })
+        }
+
+        function encodeUserData(user) {
+            var str = []
+            for(var data in user) {
+               str.push(encodeURIComponent(data) + '=' + encodeURIComponent(user[data]))
+            }
+            return str.join('&')
         }
     }])
 })
