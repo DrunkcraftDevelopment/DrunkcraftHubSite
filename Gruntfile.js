@@ -79,18 +79,21 @@ module.exports = function(grunt) {
         var destFile = 'dist/config/config.json'
 
         if (!grunt.file.exists(configFile)) {
-            grunt.log.error('Config file not found at ' + configFile) 
+            grunt.log.error('Config file not found at ' + configFile)
             return false
-        }    
+        }
         var config = grunt.file.readJSON(configFile)
-        var appVersion = pkg.version 
+        var appVersion = pkg.version
 
         config['version'] = appVersion
 
         grunt.file.write(destFile, JSON.stringify(config, null, 2))
     })
 
+    grunt.registerTask('prebuild', ['clean', 'jshint'])
     grunt.registerTask('test', ['jshint', 'karma:dev'])
-    grunt.registerTask('build', ['clean', 'jshint', 'karma:continuous', 'concat_css', 'copy', 'updateJson'])
+    grunt.registerTask('notest', ['prebuild', 'deploy'])
+    grunt.registerTask('deploy', ['concat_css', 'copy', 'updateJson'])
+    grunt.registerTask('build', ['prebuild', 'karma:continuous', 'deploy'])
     grunt.registerTask('default', ['build'])
 }
